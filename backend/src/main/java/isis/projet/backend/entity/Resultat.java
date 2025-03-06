@@ -12,20 +12,15 @@ import lombok.*;
 // cf. https://examples.javacodegeeks.com/spring-boot-with-lombok/
 @Getter @Setter @NoArgsConstructor @RequiredArgsConstructor @ToString
 @Entity // Une entité JPA
-public class Country {
+public class Resultat {
     // Identifiant technique (clé primaire, auto-générée)
-    @Id  @GeneratedValue(strategy = GenerationType.IDENTITY) 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     // Identifiant métier (code ISO)
     @NotBlank // Validation : ne doit pas contenir uniquement des espaces
     @NotEmpty // Validation : ne doit pas être vide
-    @Column(unique=true)
+    @Column(unique = true)
     @NonNull // Lombok : génère un constructeur avec ce paramètre
-    private String code;
-    
-    @Column(unique=true)
-    @NonNull // Lombok : génère un constructeur avec ce paramètre
-    @NotBlank // Validation : ne doit pas contenir uniquement des espaces
-    @NotEmpty // Validation : ne doit pas être vide
-    private String name;
+    private String classement;
 }
