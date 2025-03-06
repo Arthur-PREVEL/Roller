@@ -12,14 +12,22 @@ import lombok.*;
 // cf. https://examples.javacodegeeks.com/spring-boot-with-lombok/
 @Getter @Setter @NoArgsConstructor @RequiredArgsConstructor @ToString
 @Entity // Une entité JPA
-public class Resultat {
+public class Utilisateur {
     // Identifiant technique (clé primaire, auto-générée)
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id; //ATTENTION : à modifier, devra venir des clés étrangères de Competition.java et Utilisateur.java
+    @Id  @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
+    // Identifiant métier (code ISO)
     @NotBlank // Validation : ne doit pas contenir uniquement des espaces
     @NotEmpty // Validation : ne doit pas être vide
-    @Column(unique = true)
     @NonNull // Lombok : génère un constructeur avec ce paramètre
-    private String classement;
+    private String nom;
+
+    @NonNull // Lombok : génère un constructeur avec ce paramètre
+    @NotBlank // Validation : ne doit pas contenir uniquement des espaces
+    @NotEmpty // Validation : ne doit pas être vide
+    private String prenom;
+    private String email;
+    private boolean estMasterAdministrateur;
+    private Integer age;
+    private boolean sexe;
 }
