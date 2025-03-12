@@ -50,14 +50,16 @@ public class Utilisateur {
     //Pas de @ManyToMany car Role est une énumération et pas une entité
     private TreeSet<Role> roles = new TreeSet<>();
 
+    @Enumerated(EnumType.STRING)
     // Niveau de l'utilisateur
     private Niveau niveau;
 
+    @Enumerated(EnumType.STRING)
     // Categorie de l'utilisateur
     private Categorie categorie;
 
-   //liens avec les autres entités
 
+   //liens avec les autres entités
     @ToString.Exclude
     @OneToMany(mappedBy = "utilisateur", orphanRemoval = true, cascade = CascadeType.ALL)
     private List<Resultat> resultats = new ArrayList<>();
