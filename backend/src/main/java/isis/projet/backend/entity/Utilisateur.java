@@ -50,9 +50,11 @@ public class Utilisateur {
     //Pas de @ManyToMany car Role est une énumération et pas une entité
     private TreeSet<Role> roles = new TreeSet<>();
 
+    @Enumerated(EnumType.STRING)
     // Niveau de l'utilisateur
     private Niveau niveau;
 
+    @Enumerated(EnumType.STRING)
     // Categorie de l'utilisateur
     private Categorie categorie;
 
