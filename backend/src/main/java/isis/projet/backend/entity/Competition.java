@@ -3,9 +3,13 @@ package isis.projet.backend.entity;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 @Data //(Setter - Getter - ToString - NoArgsConstructor - RequiredArgsConstructor)
+@NoArgsConstructor
+@RequiredArgsConstructor
 @Entity // Une entité JPA
 public class Competition {
 
@@ -20,4 +24,11 @@ public class Competition {
     // Lieu de la compétition
     @NonNull
     private String lieu;
+
+
+    //liens avec les autres entités
+
+    @ToString.Exclude
+    @OneToMany(mappedBy = "competition", orphanRemoval = true)
+    private List<Resultat> resultats = new ArrayList<>();
 }

@@ -4,6 +4,8 @@ import jakarta.persistence.*;
 import lombok.*;
 
 @Data //(Setter - Getter - ToString - NoArgsConstructor - RequiredArgsConstructor)
+@NoArgsConstructor
+@RequiredArgsConstructor
 @Entity // Une entité JPA
 public class Resultat {
 
@@ -16,4 +18,15 @@ public class Resultat {
     @Column(unique = true)
     @NonNull // Lombok : génère un constructeur avec ce paramètre
     private String classement;
+
+    //liens avec les autres entités
+    @ToString.Exclude
+    @ManyToOne(optional = false)
+    @NonNull
+    private Competition competition;
+
+    @ToString.Exclude
+    @ManyToOne(optional = false)
+    @NonNull
+    private Utilisateur utilisateur;
 }
