@@ -7,12 +7,7 @@ import NavBarComponent from "@/components/NavBarComponent.vue";
 </script>
 
 <template>
-  <div>
-    <NavBarComponent />
-  </div>
-   
    <bienvenue />
-    
   <div>
     <FooterComponent />
   </div>
