@@ -17,7 +17,7 @@ import isis.projet.backend.Enum.*;
 public class Utilisateur {
 
     // Identifiant technique (clé primaire, auto-générée)
-    @Id  @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id  @GeneratedValue(strategy = GenerationType.IDENTITY) @Setter(lombok.AccessLevel.NONE)
     private Integer id;
 
     // Nom de l'utilisateur
@@ -43,11 +43,10 @@ public class Utilisateur {
     private boolean homme;
 
     // Roles de l'utilisateur
-    @ElementCollection(targetClass = Role.class)
     @Enumerated(EnumType.STRING)
+    @ElementCollection(targetClass = Role.class)
     @CollectionTable(name = "utilisateur_roles", joinColumns = @JoinColumn(name = "utilisateur_id"))
     @Column(name = "role")
-    //Pas de @ManyToMany car Role est une énumération et pas une entité
     private TreeSet<Role> roles = new TreeSet<>();
 
     @Enumerated(EnumType.STRING)

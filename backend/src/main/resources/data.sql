@@ -1,9 +1,9 @@
 -- Initialisation des tables
 INSERT INTO Country(id, code, name) VALUES
-    (default, 'FR', 'France'), -- Les clés sont déclarées de façon auto-générées
-    (default, 'UK', 'United Kingdom'),
-    (default, 'US', 'United States of America'),
-    (default, 'AL', 'Albanie');
+  (default, 'FR', 'France'), -- Les clés sont déclarées de façon auto-générées
+  (default, 'UK', 'United Kingdom'),
+  (default, 'US', 'United States of America'),
+  (default, 'AL', 'Albanie');
 
 -- Si on fixe les clés auto-générées, il faut réinitialiser le compteur
 -- Attention, cette commande n'est pas standard SQL
@@ -25,16 +25,16 @@ INSERT INTO utilisateur_roles (utilisateur_id, role) VALUES
  (3, 'Entraineur');
  
 -- Insertion des compétitions
-INSERT INTO competition (date, lieu) VALUES
- ('2024-06-15', 'Paris'),
- ('2024-07-20', 'Lyon');
+INSERT INTO competition (nom, date, lieu) VALUES
+ ('Competition Paris 2024', '2024-06-15', 'Paris'),
+ ('Competition Lyon 2024', '2024-07-20', 'Lyon');
 
 
 -- Insertion des résultats (les IDs des compétitions et utilisateurs doivent être corrects)
 INSERT INTO resultat (classement, competition_id, utilisateur_id) VALUES
-  ('1er', 1, 1),
-  ('2ème', 1, 2),
-  ('3ème', 2, 3);
+  (1, 1, 1),
+  (2, 1, 2),
+  (3, 2, 3);
 
 -- Réinitialisation des compteurs d'auto-incrémentation (selon la base de données utilisée)
 -- Pour H2

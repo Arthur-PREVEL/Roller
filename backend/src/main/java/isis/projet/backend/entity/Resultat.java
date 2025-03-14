@@ -12,12 +12,13 @@ public class Resultat {
     // Identifiant technique (clé primaire, auto-générée)
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id; //ATTENTION : à modifier, devra venir des clés étrangères de Competition.java et Utilisateur.java
+    @Setter(lombok.AccessLevel.NONE)
+    private Integer id;
 
     // Classement de l'utilisateur
     @Column(unique = true)
     @NonNull // Lombok : génère un constructeur avec ce paramètre
-    private String classement;
+    private Integer classement;
 
     //liens avec les autres entités
     @ToString.Exclude
